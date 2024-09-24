@@ -155,7 +155,9 @@ const Navbar = () => {
                 >
                   <ul className="text-sm" aria-labelledby="dropdownLargeButton">
                     <li>
+                   
                       <Link
+                       onClick={toggleMenu2}
                         to="/about-us"
                         className="block py-3 hover:text-gray-300 xl:text-base lg:text-sm font-semibold transition-all duration-500"
                       >
