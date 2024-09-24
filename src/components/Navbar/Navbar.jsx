@@ -403,7 +403,8 @@ const Navbar = () => {
 
               <li>
                 <a
-                  href="javascript:;"
+                  href="https://speedtest.uptimefury.shubhamaggarwal.engineer/"
+                  target="_blank"
                   className="nav-link  block lg:mr-6 md:mb-0 lg:text-left xl:text-base lg:text-sm font-medium transition-all duration-500 hover:text-gray-300"
                 >
                   Speed Test
