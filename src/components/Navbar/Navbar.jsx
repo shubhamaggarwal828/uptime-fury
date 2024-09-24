@@ -23,11 +23,16 @@ const Navbar = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const [isMenu1Open, setIsMenu1Open] = useState(false);
   const [isMenu2Open, setIsMenu2Open] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleNavbar = () => {
     setIsNavbarOpen(!isNavbarOpen);
+  };
+
+  const resetDropdowns = () => {
+    setIsMenu1Open(false);
+  setIsMenu2Open(false);
   };
 
   const toggleMenu1 = () => {
@@ -44,6 +49,11 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
     const handleScroll = () => {
       if (window.scrollY > 50) {
         setIsScrolled(true);
@@ -115,6 +125,7 @@ const Navbar = () => {
             <ul className="flex lg:items-center lg:justify-center flex-col max-lg:gap-4 max-lg:pt-4 max-lg:mb-4 lg:mt-0 lg:flex-row lg:mx-auto">
               <li>
                 <Link
+                  onClick={resetDropdowns}
                   to="/home"
                   className="nav-link  block lg:mr-6 md:mb-0 lg:text-left xl:text-base lg:text-sm font-medium transition-all duration-500 hover:text-gray-300"
                 >
