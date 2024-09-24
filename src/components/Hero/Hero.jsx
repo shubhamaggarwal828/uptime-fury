@@ -104,7 +104,7 @@ const Hero = () => {
           className="max-w-sm mx-auto text-base font-medium leading-7 text-gray-500 dark:text-gray-300 mb-9"
           variants={itemVariants}
         >
-          Monitor your sites' performance and reliability with instant alerts
+          Monitor your site's performance and reliability with instant alerts
           and global visibility. Ensure your services are always online and
           optimized.
         </motion.p>

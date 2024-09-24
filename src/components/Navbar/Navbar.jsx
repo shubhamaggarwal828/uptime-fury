@@ -2,17 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
-import { IoMdArrowDropdown } from "react-icons/io";
-import { Link } from "react-router-dom"; // Import Link component
-
+import { Link } from "react-router-dom";
 
 import {
-  FiBell,
-  FiActivity,
-  FiLayers,
-  FiShield,
-  FiBookOpen,
-  FiHelpCircle,
   FiMoon,
   FiSun,
   FiBarChart2,
@@ -68,16 +60,15 @@ const Navbar = () => {
 
   return (
     <nav
-    className={`py-3 lg:fixed top-0 left-0 z-50 w-full border-b border-gray-700 ${
-      isScrolled
-        ? isDarkMode
-          ? "bg-[#121212]"
-          : "bg-[#f9f9f9]"
-        : isDarkMode
+      className={`py-3 lg:fixed top-0 left-0 z-50 w-full border-b border-gray-700 ${
+        isScrolled
+          ? isDarkMode
+            ? "bg-[#121212]"
+            : "bg-[#f9f9f9]"
+          : isDarkMode
           ? "bg-[#1f1f1f]"
           : "bg-[#f9f9f9]"
-    } ${isDarkMode ? "text-white" : "text-black"}`}
-    
+      } ${isDarkMode ? "text-white" : "text-black"}`}
     >
       <div className="mx-auto custom-width px-2 sm:px-4 lg:px-4">
         <div className="w-full flex flex-col lg:flex-row">
@@ -116,8 +107,9 @@ const Navbar = () => {
             </div>
           </div>
           <div
-            className={`w-full lg:flex lg:pl-11 max-lg:mt-1 max-lg:h-screen max-lg:overflow-y-auto ${isNavbarOpen ? "block" : "hidden"
-              }`}
+            className={`w-full lg:flex lg:pl-11 max-lg:mt-1 max-lg:h-screen max-lg:overflow-y-auto ${
+              isNavbarOpen ? "block" : "hidden"
+            }`}
             id="navbar"
           >
             <ul className="flex lg:items-center lg:justify-center flex-col max-lg:gap-4 max-lg:pt-4 max-lg:mb-4 lg:mt-0 lg:flex-row lg:mx-auto">
@@ -137,7 +129,9 @@ const Navbar = () => {
                 >
                   Our Company
                   <svg
-                    className={`ml-2 h-4 w-4 ${isDarkMode ? "text-white" : "text-black"}`}
+                    className={`ml-2 h-4 w-4 ${
+                      isDarkMode ? "text-white" : "text-black"
+                    }`}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -149,281 +143,282 @@ const Navbar = () => {
                       d="M19 9l-7 7-7-7"
                     />
                   </svg>
-
-       
-                {/* <IoMdArrowDropdown className="w-3 h-2 ml-1.5" /> */}
-              </button>
-              {/* Dropdown menu */}
-              <div
-                id="menu2"
-                aria-labelledby="menu2"
-                className={`dropdown-menu z-10 relative top-3 max-lg:mb-3 lg:absolute lg:top-14 font-normal rounded-lg w-64 xl:p-8 lg:p-4 p-2 ${isMenu2Open ? "block" : "hidden"
+                  {/* <IoMdArrowDropdown className="w-3 h-2 ml-1.5" /> */}
+                </button>
+                {/* Dropdown menu */}
+                <div
+                  id="menu2"
+                  aria-labelledby="menu2"
+                  className={`dropdown-menu z-10 relative top-3 max-lg:mb-3 lg:absolute lg:top-14 font-normal rounded-lg w-64 xl:p-8 lg:p-4 p-2 ${
+                    isMenu2Open ? "block" : "hidden"
                   } ${isDarkMode ? "bg-[#1f1f1f]" : "bg-[#f9f9f9]"}`}
-              >
-                <ul className="text-sm" aria-labelledby="dropdownLargeButton">
-                  <li>
-                    <a
-                      href="javascript:;"
-                      className="block py-3 hover:text-gray-300 xl:text-base lg:text-sm font-semibold transition-all duration-500"
-                    >
-                      About Us
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="javascript:;"
-                      className="block py-3 hover:text-gray-300 xl:text-base lg:text-sm font-semibold transition-all duration-500"
-                    >
-                      Wesbsite Monitoring
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="javascript:;"
-                      className="block py-3 hover:text-gray-300 xl:text-base lg:text-sm font-semibold transition-all duration-500"
-                    >
-                      Contact Us
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li className="relative">
-              <button
-                onClick={toggleMenu1}
-                className="dropdown-toggle flex items-center justify-between text-center xl:text-base lg:text-sm font-medium hover:text-gray-300 transition-all duration-500 lg:mr-6 lg:mb-0 mr-auto lg:text-left lg:m-0"
-              >
-                Fine Metrics
-                <svg
-                    className={`ml-2 h-4 w-4 ${isDarkMode ? "text-white" : "text-black"}`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-
-                {/* <IoMdArrowDropdown className="w-3 h-2 ml-1.5" /> */}
-              </button>
-              {/* Dropdown menu */}
-              <div
-                id="menu1"
-                aria-labelledby="menu1"
-                className={`animate-fade z-10 relative top-3 max-lg:mb-3 lg:absolute lg:top-14 lg:-left-80 rounded-lg  max-lg:shadow-inner xl:p-8 lg:p-4 p-2 lg:min-w-[800px] md:min-w-[500px] min-w-full ${isMenu1Open ? "block" : "hidden"
-                  } ${isDarkMode ? "bg-[#1f1f1f]" : "bg-[#f9f9f9]"}`}
-              >
-                <div className="flex flex-col md:flex-row justify-between">
-                  <ul
-                    className="text-sm md:w-1/2"
-                    aria-labelledby="dropdownLargeButton"
-                  >
+                >
+                  <ul className="text-sm" aria-labelledby="dropdownLargeButton">
                     <li>
                       <Link
-                        to="quickstats"
-                        onClick={toggleMenu1}
-                        className="px-3 py-5 transition-all duration-500 hover:bg-[#287150] hover:rounded-xl flex items-center"
+                        to="/about-us"
+                        className="block py-3 hover:text-gray-300 xl:text-base lg:text-sm font-semibold transition-all duration-500"
                       >
-                        <div className="bg-orange-50 rounded-lg w-12 h-12 flex items-center justify-center">
-                          <FiBarChart2 className="w-6 h-6 text-orange-500" />
-                        </div>
-                        <div className="ml-4 w-4/5">
-                          <h5 className="xl:text-base lg:text-sm mb-1.5 font-semibold">
-                            Quick Stats
-                          </h5>
-                          <p className="text-xs font-medium">
-                            Instantly view your website’s uptime, response
-                            time, and overall performance metrics
-                          </p>
-                        </div>
+                        About Us
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        to="ssl"
-                        onClick={toggleMenu1}
-                        className="px-3 py-5 hover:bg-[#287150] hover:rounded-xl flex items-center transition-all duration-500"
+                      <a
+                        href="javascript:;"
+                        className="block py-3 hover:text-gray-300 xl:text-base lg:text-sm font-semibold transition-all duration-500"
                       >
-                        <div className="bg-emerald-50 rounded-lg w-12 h-12 flex items-center justify-center">
-                          <FiLock className="w-6 h-6 text-emerald-500" />
-                        </div>
-                        <div className="ml-4 w-4/5">
-                          <h5 className="xl:text-base lg:text-sm mb-1.5 font-semibold">
-                            SSL
-                          </h5>
-                          <p className="text-xs font-medium">
-                            Check SSL certificate status and expiration to
-                            ensure secure user connections
-                          </p>
-                        </div>
-                      </Link>
+                        Website Monitoring
+                      </a>
                     </li>
                     <li>
-                      <Link
-                        to="ping"
-                        onClick={toggleMenu1}
-                        className="px-3 py-5 hover:bg-[#287150] hover:rounded-xl flex items-center transition-all duration-500"
+                      <a
+                        href="javascript:;"
+                        className="block py-3 hover:text-gray-300 xl:text-base lg:text-sm font-semibold transition-all duration-500"
                       >
-                        <div className="bg-blue-50 rounded-lg w-12 h-12 flex items-center justify-center">
-                          <FiWifi className="w-6 h-6 text-blue-500" />
-                        </div>
-                        <div className="ml-4 w-4/5">
-                          <h5 className="xl:text-base lg:text-sm mb-1.5 font-semibold">
-                            Ping
-                          </h5>
-                          <p className="text-xs font-medium">
-                            Monitor server response times and evaluate network
-                            latency from various locations
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="http"
-                        onClick={toggleMenu1}
-                        className="px-3 py-5 hover:bg-[#287150] hover:rounded-xl flex items-center transition-all duration-500"
-                      >
-                        <div className="bg-blue-50 rounded-lg w-12 h-12 flex items-center justify-center">
-                          <FiServer className="w-6 h-6 text-blue-500" />
-                        </div>
-                        <div className="ml-4 w-4/5">
-                          <h5 className="xl:text-base lg:text-sm mb-1.5 font-semibold">
-                            HTTP
-                          </h5>
-                          <p className="text-xs font-medium">
-                            Test your website’s HTTP status for smooth
-                            operation and identify performance issues
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                  </ul>
-                  <ul
-                    className="text-sm md:w-1/2"
-                    aria-labelledby="dropdownLargeButton"
-                  >
-                    <li>
-                      <Link
-                        to="whois"
-                        onClick={toggleMenu1}
-                        className="px-3 py-5 hover:bg-[#287150] hover:rounded-xl flex items-center transition-all duration-500"
-                      >
-                        <div className="bg-rose-50 rounded-lg w-12 h-12 flex items-center justify-center">
-                          <FiUserCheck className="w-6 h-6 text-rose-500" />
-                        </div>
-                        <div className="ml-4 w-4/5">
-                          <h5 className="xl:text-base lg:text-sm mb-1.5 font-semibold">
-                            WHOIS
-                          </h5>
-                          <p className="text-xs font-medium">
-                            Retrieve domain ownership and registration details
-                            to stay informed about changes
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="traceroute"
-                        onClick={toggleMenu1}
-                        className="px-3 py-5 hover:bg-[#287150]hover:rounded-xl flex items-center transition-all duration-500"
-                      >
-                        <div className="bg-indigo-50 rounded-lg w-12 h-12 flex items-center justify-center">
-                          <FiMap className="w-6 h-6 text-indigo-500" />
-                        </div>
-                        <div className="ml-4 w-4/5">
-                          <h5 className="xl:text-base lg:text-sm mb-1.5 font-semibold">
-                            Traceroute
-                          </h5>
-                          <p className="text-xs font-medium">
-                            Trace your data’s path through the internet to
-                            identify slowdowns and issues
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="nslookup"
-                        onClick={toggleMenu1}
-                        className="px-3 py-5 hover:bg-[#287150] hover:rounded-xl flex items-center transition-all duration-500"
-                      >
-                        <div className="bg-cyan-50 rounded-lg w-12 h-12 flex items-center justify-center">
-                          <FiGlobe className="w-6 h-6 text-cyan-500" />
-                        </div>
-                        <div className="ml-4 w-4/5">
-                          <h5 className="xl:text-base lg:text-sm mb-1.5 font-semibold">
-                            NS Lookup
-                          </h5>
-                          <p className="text-xs font-medium">
-                            Find authoritative name servers for any domain to
-                            ensure correct DNS resolution
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="dnslookup"
-                        onClick={toggleMenu1}
-                        className="px-3 py-5 hover:bg-[#287150] hover:rounded-xl flex items-center transition-all duration-500"
-                      >
-                        <div className="bg-cyan-50 rounded-lg w-12 h-12 flex items-center justify-center">
-                          <FiCode className="w-6 h-6 text-cyan-500" />
-                        </div>
-                        <div className="ml-4 w-4/5">
-                          <h5 className="xl:text-base lg:text-sm mb-1.5 font-semibold">
-                            DNS Lookup
-                          </h5>
-                          <p className="text-xs font-medium">
-                            Access and verify DNS records like A, MX, and
-                            TXT for accuracy
-                          </p>
-                        </div>
-                      </Link>
+                        Contact Us
+                      </a>
                     </li>
                   </ul>
                 </div>
-              </div>
-            </li>
+              </li>
 
-            <li>
-              <a
-                href="javascript:;"
-                className="nav-link  block lg:mr-6 md:mb-0 lg:text-left xl:text-base lg:text-sm font-medium transition-all duration-500 hover:text-gray-300"
+              <li className="relative">
+                <button
+                  onClick={toggleMenu1}
+                  className="dropdown-toggle flex items-center justify-between text-center xl:text-base lg:text-sm font-medium hover:text-gray-300 transition-all duration-500 lg:mr-6 lg:mb-0 mr-auto lg:text-left lg:m-0"
+                >
+                  Fine Metrics
+                  <svg
+                    className={`ml-2 h-4 w-4 ${
+                      isDarkMode ? "text-white" : "text-black"
+                    }`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                  {/* <IoMdArrowDropdown className="w-3 h-2 ml-1.5" /> */}
+                </button>
+                {/* Dropdown menu */}
+                <div
+                  id="menu1"
+                  aria-labelledby="menu1"
+                  className={`animate-fade z-10 relative top-3 max-lg:mb-3 lg:absolute lg:top-14 lg:-left-80 rounded-lg  max-lg:shadow-inner xl:p-8 lg:p-4 p-2 lg:min-w-[800px] md:min-w-[500px] min-w-full ${
+                    isMenu1Open ? "block" : "hidden"
+                  } ${isDarkMode ? "bg-[#1f1f1f]" : "bg-[#f9f9f9]"}`}
+                >
+                  <div className="flex flex-col md:flex-row justify-between">
+                    <ul
+                      className="text-sm md:w-1/2"
+                      aria-labelledby="dropdownLargeButton"
+                    >
+                      <li>
+                        <Link
+                          to="quickstats"
+                          onClick={toggleMenu1}
+                          className="px-3 py-5 transition-all duration-500 hover:bg-[#287150] hover:rounded-xl flex items-center"
+                        >
+                          <div className="bg-orange-50 rounded-lg w-12 h-12 flex items-center justify-center">
+                            <FiBarChart2 className="w-6 h-6 text-orange-500" />
+                          </div>
+                          <div className="ml-4 w-4/5">
+                            <h5 className="xl:text-base lg:text-sm mb-1.5 font-semibold">
+                              Quick Stats
+                            </h5>
+                            <p className="text-xs font-medium">
+                              Instantly view your website’s uptime, response
+                              time, and overall performance metrics
+                            </p>
+                          </div>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="ssl"
+                          onClick={toggleMenu1}
+                          className="px-3 py-5 hover:bg-[#287150] hover:rounded-xl flex items-center transition-all duration-500"
+                        >
+                          <div className="bg-emerald-50 rounded-lg w-12 h-12 flex items-center justify-center">
+                            <FiLock className="w-6 h-6 text-emerald-500" />
+                          </div>
+                          <div className="ml-4 w-4/5">
+                            <h5 className="xl:text-base lg:text-sm mb-1.5 font-semibold">
+                              SSL
+                            </h5>
+                            <p className="text-xs font-medium">
+                              Check SSL certificate status and expiration to
+                              ensure secure user connections
+                            </p>
+                          </div>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="ping"
+                          onClick={toggleMenu1}
+                          className="px-3 py-5 hover:bg-[#287150] hover:rounded-xl flex items-center transition-all duration-500"
+                        >
+                          <div className="bg-blue-50 rounded-lg w-12 h-12 flex items-center justify-center">
+                            <FiWifi className="w-6 h-6 text-blue-500" />
+                          </div>
+                          <div className="ml-4 w-4/5">
+                            <h5 className="xl:text-base lg:text-sm mb-1.5 font-semibold">
+                              Ping
+                            </h5>
+                            <p className="text-xs font-medium">
+                              Monitor server response times and evaluate network
+                              latency from various locations
+                            </p>
+                          </div>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="http"
+                          onClick={toggleMenu1}
+                          className="px-3 py-5 hover:bg-[#287150] hover:rounded-xl flex items-center transition-all duration-500"
+                        >
+                          <div className="bg-blue-50 rounded-lg w-12 h-12 flex items-center justify-center">
+                            <FiServer className="w-6 h-6 text-blue-500" />
+                          </div>
+                          <div className="ml-4 w-4/5">
+                            <h5 className="xl:text-base lg:text-sm mb-1.5 font-semibold">
+                              HTTP
+                            </h5>
+                            <p className="text-xs font-medium">
+                              Test your website’s HTTP status for smooth
+                              operation and identify performance issues
+                            </p>
+                          </div>
+                        </Link>
+                      </li>
+                    </ul>
+                    <ul
+                      className="text-sm md:w-1/2"
+                      aria-labelledby="dropdownLargeButton"
+                    >
+                      <li>
+                        <Link
+                          to="whois"
+                          onClick={toggleMenu1}
+                          className="px-3 py-5 hover:bg-[#287150] hover:rounded-xl flex items-center transition-all duration-500"
+                        >
+                          <div className="bg-rose-50 rounded-lg w-12 h-12 flex items-center justify-center">
+                            <FiUserCheck className="w-6 h-6 text-rose-500" />
+                          </div>
+                          <div className="ml-4 w-4/5">
+                            <h5 className="xl:text-base lg:text-sm mb-1.5 font-semibold">
+                              WHOIS
+                            </h5>
+                            <p className="text-xs font-medium">
+                              Retrieve domain ownership and registration details
+                              to stay informed about changes
+                            </p>
+                          </div>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="traceroute"
+                          onClick={toggleMenu1}
+                          className="px-3 py-5 hover:bg-[#287150]hover:rounded-xl flex items-center transition-all duration-500"
+                        >
+                          <div className="bg-indigo-50 rounded-lg w-12 h-12 flex items-center justify-center">
+                            <FiMap className="w-6 h-6 text-indigo-500" />
+                          </div>
+                          <div className="ml-4 w-4/5">
+                            <h5 className="xl:text-base lg:text-sm mb-1.5 font-semibold">
+                              Traceroute
+                            </h5>
+                            <p className="text-xs font-medium">
+                              Trace your data’s path through the internet to
+                              identify slowdowns and issues
+                            </p>
+                          </div>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="nslookup"
+                          onClick={toggleMenu1}
+                          className="px-3 py-5 hover:bg-[#287150] hover:rounded-xl flex items-center transition-all duration-500"
+                        >
+                          <div className="bg-cyan-50 rounded-lg w-12 h-12 flex items-center justify-center">
+                            <FiGlobe className="w-6 h-6 text-cyan-500" />
+                          </div>
+                          <div className="ml-4 w-4/5">
+                            <h5 className="xl:text-base lg:text-sm mb-1.5 font-semibold">
+                              NS Lookup
+                            </h5>
+                            <p className="text-xs font-medium">
+                              Find authoritative name servers for any domain to
+                              ensure correct DNS resolution
+                            </p>
+                          </div>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="dnslookup"
+                          onClick={toggleMenu1}
+                          className="px-3 py-5 hover:bg-[#287150] hover:rounded-xl flex items-center transition-all duration-500"
+                        >
+                          <div className="bg-cyan-50 rounded-lg w-12 h-12 flex items-center justify-center">
+                            <FiCode className="w-6 h-6 text-cyan-500" />
+                          </div>
+                          <div className="ml-4 w-4/5">
+                            <h5 className="xl:text-base lg:text-sm mb-1.5 font-semibold">
+                              DNS Lookup
+                            </h5>
+                            <p className="text-xs font-medium">
+                              Access and verify DNS records like A, MX, and
+                              TXT for accuracy
+                            </p>
+                          </div>
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <a
+                  href="javascript:;"
+                  className="nav-link  block lg:mr-6 md:mb-0 lg:text-left xl:text-base lg:text-sm font-medium transition-all duration-500 hover:text-gray-300"
+                >
+                  Speed Test
+                </a>
+              </li>
+            </ul>
+            <div className="flex lg:items-center w-full justify-start flex-col lg:flex-row gap-4 lg:w-max max-lg:gap-4 lg:ml-14 lg:justify-end">
+              <button className="bg-gray-700 text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 py-3 px-6 text-sm hover:bg-gray-600">
+                Login
+              </button>
+              <button className="bg-[#287150] text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 py-3 px-6 text-sm hover:bg-[#205c44]">
+                Register
+              </button>
+              <button
+                onClick={toggleDarkMode}
+                className="cursor-pointer font-semibold text-center transition-all duration-500 py-3 px-6 text-sm flex items-center hidden lg:block"
               >
-                Speed Test
-              </a>
-            </li>
-          </ul>
-          <div className="flex lg:items-center w-full justify-start flex-col lg:flex-row gap-4 lg:w-max max-lg:gap-4 lg:ml-14 lg:justify-end">
-            <button className="bg-gray-700 text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 py-3 px-6 text-sm hover:bg-gray-600">
-              Login
-            </button>
-            <button className="bg-[#287150] text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 py-3 px-6 text-sm hover:bg-[#205c44]">
-              Register
-            </button>
-            <button
-              onClick={toggleDarkMode}
-              className="cursor-pointer font-semibold text-center transition-all duration-500 py-3 px-6 text-sm flex items-center hidden lg:block"
-            >
-              {isDarkMode ? (
-                <FiSun className="w-6 h-6" />
-              ) : (
-                <FiMoon className="w-6 h-6" />
-              )}
-            </button>
+                {isDarkMode ? (
+                  <FiSun className="w-6 h-6" />
+                ) : (
+                  <FiMoon className="w-6 h-6" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    </nav >
+    </nav>
   );
 };
 
