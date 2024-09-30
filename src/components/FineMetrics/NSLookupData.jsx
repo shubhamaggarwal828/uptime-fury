@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartLine } from "@fortawesome/free-solid-svg-icons";
-import { FaNetworkWired, FaExclamationTriangle, FaStopwatch } from "react-icons/fa";
+import { FaClipboardCheck, FaNetworkWired, FaExclamationTriangle } from "react-icons/fa"; // Import icons for NS Lookup
 import hero_img_light from "../images/quick-stats.svg";
 import hero_img_dark from "../images/quick-stats-dark.svg";
 import axios from 'axios';
@@ -52,7 +52,7 @@ const NSLookupData = () => {
   const renderTableRows = (data, isDarkMode) => {
     // Combine all data into a single array of rows
     const rows = [];
-  
+
     // Add nsRecords to the rows
     if (data.nsRecords && data.nsRecords.length > 0) {
       rows.push({
@@ -60,7 +60,7 @@ const NSLookupData = () => {
         value: data.nsRecords.join('\n') // Join with newline character
       });
     }
-  
+
     // Add dnsInfo to the rows
     if (data.dnsInfo) {
       rows.push({ attribute: 'Domain', value: data.dnsInfo.domain });
@@ -69,14 +69,14 @@ const NSLookupData = () => {
       rows.push({ attribute: 'IPv6 Addresses', value: data.dnsInfo.ipv6Addresses.join(', ') });
       rows.push({ attribute: 'Timestamp', value: data.dnsInfo.timestamp });
     }
-  
+
     // Add details to the rows
     if (data.details) {
       rows.push({ attribute: 'Name', value: data.details.name });
       rows.push({ attribute: 'Address', value: data.details.address });
       rows.push({ attribute: 'Server', value: data.details.server });
     }
-  
+
     return (
       <React.Fragment>
         <thead
@@ -106,7 +106,7 @@ const NSLookupData = () => {
             </th>
           </motion.tr>
         </thead>
-  
+
         <tbody>
           {rows.map((row, rowIndex) => (
             <motion.tr
@@ -237,14 +237,14 @@ const NSLookupData = () => {
               >
                 <FontAwesomeIcon icon={faChartLine} />
               </span>
-              <span className="text-xs font-medium uppercase">Ping</span>
+              <span className="text-xs font-medium uppercase">NsLookup</span>
             </motion.a>
             <motion.h1
               className="mb-4 max-w-2xl text-3xl font-bold leading-none md:text-3xl xl:text-5xl dark:text-white"
               style={{ fontFamily: "Slabo 27px, serif", fontWeight: 500 }}
               variants={itemVariants}
             >
-              Lightning-Fast Pings
+              Instant DNS Lookups
               <br />
               <span
                 className="mt-4 block"
@@ -254,14 +254,14 @@ const NSLookupData = () => {
                   fontWeight: 500,
                 }}
               >
-                Flawless Connectivity
+                Accurate & Reliable
               </span>
             </motion.h1>
             <motion.p
               className="mb-8 max-w-2xl font-light text-black lg:mb-8 md:text-lg lg:text-xl dark:text-white"
               variants={itemVariants}
             >
-              Ping Power, Performance Everywhere Your go-to tool for seamless, reliable connections.
+              Get comprehensive DNS records effortlessly. Your trusted tool for domain insights and network diagnostics.
             </motion.p>
             <motion.div
               className="flex flex-col items-start justify-start lg:col-span-7 w-full"
@@ -374,7 +374,7 @@ const NSLookupData = () => {
                   <FontAwesomeIcon icon={faChartLine} />
                 </span>
                 <span className="text-m font-medium uppercase">
-                  PING METRICS
+                  NS LOOKUP DATA
                 </span>
               </motion.a>
               <table
@@ -393,72 +393,72 @@ const NSLookupData = () => {
 
 
         {/* Features Description */}
-        <div
-          className={`max-w-[1280px] py-8 lg:py-12 ${isDarkMode ? "bg-[#121212]" : "bg-[#ffffff]"
-            }`}
-        >
-          <motion.div
-            className="flex flex-col lg:flex-row flex-wrap justify-between items-start gap-6 px-4 lg:px-0"
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-          >
-            {/* Ping Statistics */}
-            <motion.div
-              className="text-left space-y-2 flex-1 min-w-[200px]"
-              variants={itemVariants}
-            >
-              <div
-                className={`flex justify-start text-4xl ${isDarkMode ? "text-gray-500" : "text-gray-700"}`}
-              >
-                <FaNetworkWired /> {/* Example Icon */}
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                Network Latency
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400">
-                Measure the time it takes for data to travel from your device to a server.
-              </p>
-            </motion.div>
+        
+<div
+  className={`max-w-[1280px] py-8 lg:py-12 ${isDarkMode ? "bg-[#121212]" : "bg-[#ffffff]"}`}
+>
+  <motion.div
+    className="flex flex-col lg:flex-row flex-wrap justify-between items-start gap-6 px-4 lg:px-0"
+    initial="hidden"
+    animate="visible"
+    variants={containerVariants}
+  >
+    {/* DNS Records */}
+    <motion.div
+      className="text-left space-y-2 flex-1 min-w-[200px]"
+      variants={itemVariants}
+    >
+      <div
+        className={`flex justify-start text-4xl ${isDarkMode ? "text-gray-500" : "text-gray-700"}`}
+      >
+        <FaClipboardCheck /> {/* Icon for DNS Records */}
+      </div>
+      <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+        DNS Records
+      </h3>
+      <p className="text-gray-500 dark:text-gray-400">
+        Retrieve and analyze DNS records for accurate domain information.
+      </p>
+    </motion.div>
 
-            {/* Packet Loss */}
-            <motion.div
-              className="text-left space-y-2 flex-1 min-w-[200px]"
-              variants={itemVariants}
-            >
-              <div
-                className={`flex justify-start text-4xl ${isDarkMode ? "text-gray-500" : "text-gray-700"}`}
-              >
-                <FaExclamationTriangle /> {/* Example Icon */}
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                Packet Loss
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400">
-                Monitor the percentage of packets lost during transmission.
-              </p>
-            </motion.div>
+    {/* Network Latency */}
+    <motion.div
+      className="text-left space-y-2 flex-1 min-w-[200px]"
+      variants={itemVariants}
+    >
+      <div
+        className={`flex justify-start text-4xl ${isDarkMode ? "text-gray-500" : "text-gray-700"}`}
+      >
+        <FaNetworkWired />
+      </div>
+      <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+        Network Latency
+      </h3>
+      <p className="text-gray-500 dark:text-gray-400">
+        Measure the time taken for queries to travel to DNS servers and back.
+      </p>
+    </motion.div>
 
-            {/* Response Time */}
-            <motion.div
-              className="text-left space-y-2 flex-1 min-w-[200px]"
-              variants={itemVariants}
-            >
-              <div
-                className={`flex justify-start text-4xl ${isDarkMode ? "text-gray-500" : "text-gray-700"}`}
-              >
-                <FaStopwatch /> {/* Example Icon */}
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                Response Time
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400">
-                Track the total time taken for a server to respond to your requests.
-              </p>
-            </motion.div>
+    {/* Packet Loss */}
+    <motion.div
+      className="text-left space-y-2 flex-1 min-w-[200px]"
+      variants={itemVariants}
+    >
+      <div
+        className={`flex justify-start text-4xl ${isDarkMode ? "text-gray-500" : "text-gray-700"}`}
+      >
+        <FaExclamationTriangle />
+      </div>
+      <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+        Packet Loss
+      </h3>
+      <p className="text-gray-500 dark:text-gray-400">
+        Monitor packet loss during DNS queries to ensure reliability.
+      </p>
+    </motion.div>
+  </motion.div>
+</div>
 
-          </motion.div>
-        </div>
       </section>
     </div>
   );

@@ -47,11 +47,32 @@ const GetStarted = ({ isDarkMode }) => {
 
         {/* Get Started Button */}
         <motion.button
-          className="bg-[#35976b] hover:bg-[#2e865f] text-white font-semibold py-3 px-8 rounded-full dark:bg-[#287150] dark:hover:bg-[#205c44]"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          className="w-full md:w-auto inline-flex items-center justify-center py-3 px-7 text-base font-semibold text-center text-white rounded-full"
+          style={{
+            backgroundColor: "#35976b", // Dark green
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+            transition: "background-color 0.3s",
+          }}
+          onMouseEnter={(e) => (e.target.style.backgroundColor = "#287150")}
+          onMouseLeave={(e) => (e.target.style.backgroundColor = "#35976b")}
         >
           Get Started
+          <svg
+            className="ml-2"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.5 15L11.0858 11.4142C11.7525 10.7475 12.0858 10.4142 12.0858 10C12.0858 9.58579 11.7525 9.25245 11.0858 8.58579L7.5 5"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </motion.button>
       </motion.div>
     </section>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartLine } from "@fortawesome/free-solid-svg-icons";
-import { FaNetworkWired, FaExclamationTriangle, FaStopwatch } from "react-icons/fa";
+import { FaGlobe, FaServer, FaRocket } from "react-icons/fa";
 import hero_img_light from "../images/quick-stats.svg";
 import hero_img_dark from "../images/quick-stats-dark.svg";
 import axios from 'axios';
@@ -56,7 +56,7 @@ const DNSLookupDataData = () => {
   const renderTableRows = (data, isDarkMode) => {
     // Combine all data into a single array of rows
     const rows = [];
-  
+
     // Helper function to process records
     const processRecords = (records, recordType) => {
       if (records && records.length > 0) {
@@ -80,7 +80,7 @@ const DNSLookupDataData = () => {
         });
       }
     };
-  
+
     // Process different record types
     const recordTypes = [
       { key: 'MX records', label: 'MX Records' },
@@ -94,9 +94,9 @@ const DNSLookupDataData = () => {
       { key: 'NS records', label: 'NS Records' },
       { key: 'A records', label: 'A Records' }
     ];
-  
+
     recordTypes.forEach(({ key, label }) => processRecords(data[key], label));
-  
+
     return (
       <React.Fragment>
         <thead
@@ -124,7 +124,7 @@ const DNSLookupDataData = () => {
             >
               Value
             </th>
-          
+
             <th
               scope="col"
               className={`px-6 py-3 border-b ${isDarkMode ? "border-gray-700" : "border-gray-300"} whitespace-nowrap xl:min-w-[150px]`}
@@ -133,7 +133,7 @@ const DNSLookupDataData = () => {
             </th>
           </motion.tr>
         </thead>
-  
+
         <tbody>
           {rows.length > 0 ? (
             rows.map((row, rowIndex) => (
@@ -155,7 +155,7 @@ const DNSLookupDataData = () => {
                 >
                   <pre>{row.value !== undefined ? row.value : 'N/A'}</pre>
                 </td>
-       
+
                 <td
                   className={`px-6 py-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
                 >
@@ -177,7 +177,7 @@ const DNSLookupDataData = () => {
 
 
 
-  
+
 
 
 
@@ -208,8 +208,8 @@ const DNSLookupDataData = () => {
         setData(response.data);
         setShowTable(true);
         console.log('Data:', response.data); // Log the data to verify
-      
-        
+
+
       } catch (error) {
         if (error.response && error.response.data && error.response.data.error) {
           setErrorMessage(error.response.data.error); // Set the error message from backend
@@ -290,14 +290,14 @@ const DNSLookupDataData = () => {
               >
                 <FontAwesomeIcon icon={faChartLine} />
               </span>
-              <span className="text-xs font-medium uppercase">Ping</span>
+              <span className="text-xs font-medium uppercase">DNS LOOKUP</span>
             </motion.a>
             <motion.h1
               className="mb-4 max-w-2xl text-3xl font-bold leading-none md:text-3xl xl:text-5xl dark:text-white"
               style={{ fontFamily: "Slabo 27px, serif", fontWeight: 500 }}
               variants={itemVariants}
             >
-              Lightning-Fast Pings
+              Swift DNS Lookups
               <br />
               <span
                 className="mt-4 block"
@@ -307,14 +307,14 @@ const DNSLookupDataData = () => {
                   fontWeight: 500,
                 }}
               >
-                Flawless Connectivity
+                Accurate Domain Insights
               </span>
             </motion.h1>
             <motion.p
               className="mb-8 max-w-2xl font-light text-black lg:mb-8 md:text-lg lg:text-xl dark:text-white"
               variants={itemVariants}
             >
-              Ping Power, Performance Everywhere Your go-to tool for seamless, reliable connections.
+              DNS Lookups Made Easy: Your essential tool for retrieving accurate domain information and ensuring optimal connectivity.
             </motion.p>
             <motion.div
               className="flex flex-col items-start justify-start lg:col-span-7 w-full"
@@ -427,7 +427,7 @@ const DNSLookupDataData = () => {
                   <FontAwesomeIcon icon={faChartLine} />
                 </span>
                 <span className="text-m font-medium uppercase">
-                  PING METRICS
+                  DNS LOOKUP DATA
                 </span>
               </motion.a>
               <table
@@ -447,73 +447,72 @@ const DNSLookupDataData = () => {
         )}
 
 
-        {/* Features Description */}
-        <div
-          className={`max-w-[1280px] py-8 lg:py-12 ${isDarkMode ? "bg-[#121212]" : "bg-[#ffffff]"
-            }`}
-        >
-          <motion.div
-            className="flex flex-col lg:flex-row flex-wrap justify-between items-start gap-6 px-4 lg:px-0"
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-          >
-            {/* Ping Statistics */}
-            <motion.div
-              className="text-left space-y-2 flex-1 min-w-[200px]"
-              variants={itemVariants}
-            >
-              <div
-                className={`flex justify-start text-4xl ${isDarkMode ? "text-gray-500" : "text-gray-700"}`}
-              >
-                <FaNetworkWired /> {/* Example Icon */}
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                Network Latency
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400">
-                Measure the time it takes for data to travel from your device to a server.
-              </p>
-            </motion.div>
+       {/* Features Description */}
+<div
+  className={`max-w-[1280px] py-8 lg:py-12 ${isDarkMode ? "bg-[#121212]" : "bg-[#ffffff]"} `}
+>
+  <motion.div
+    className="flex flex-col lg:flex-row flex-wrap justify-between items-start gap-6 px-4 lg:px-0"
+    initial="hidden"
+    animate="visible"
+    variants={containerVariants}
+  >
+    {/* DNS Query */}
+    <motion.div
+      className="text-left space-y-2 flex-1 min-w-[200px]"
+      variants={itemVariants}
+    >
+      <div
+        className={`flex justify-start text-4xl ${isDarkMode ? "text-gray-500" : "text-gray-700"}`}
+      >
+        <FaGlobe /> {/* Updated Icon */}
+      </div>
+      <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+        DNS Query
+      </h3>
+      <p className="text-gray-500 dark:text-gray-400">
+        Effortlessly perform DNS queries to retrieve domain information quickly.
+      </p>
+    </motion.div>
 
-            {/* Packet Loss */}
-            <motion.div
-              className="text-left space-y-2 flex-1 min-w-[200px]"
-              variants={itemVariants}
-            >
-              <div
-                className={`flex justify-start text-4xl ${isDarkMode ? "text-gray-500" : "text-gray-700"}`}
-              >
-                <FaExclamationTriangle /> {/* Example Icon */}
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                Packet Loss
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400">
-                Monitor the percentage of packets lost during transmission.
-              </p>
-            </motion.div>
+    {/* Record Types */}
+    <motion.div
+      className="text-left space-y-2 flex-1 min-w-[200px]"
+      variants={itemVariants}
+    >
+      <div
+        className={`flex justify-start text-4xl ${isDarkMode ? "text-gray-500" : "text-gray-700"}`}
+      >
+        <FaServer /> {/* Updated Icon */}
+      </div>
+      <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+        Record Types
+      </h3>
+      <p className="text-gray-500 dark:text-gray-400">
+        Access various DNS record types, including A, AAAA, MX, and TXT records.
+      </p>
+    </motion.div>
 
-            {/* Response Time */}
-            <motion.div
-              className="text-left space-y-2 flex-1 min-w-[200px]"
-              variants={itemVariants}
-            >
-              <div
-                className={`flex justify-start text-4xl ${isDarkMode ? "text-gray-500" : "text-gray-700"}`}
-              >
-                <FaStopwatch /> {/* Example Icon */}
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                Response Time
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400">
-                Track the total time taken for a server to respond to your requests.
-              </p>
-            </motion.div>
+    {/* DNS Lookup Speed */}
+    <motion.div
+      className="text-left space-y-2 flex-1 min-w-[200px]"
+      variants={itemVariants}
+    >
+      <div
+        className={`flex justify-start text-4xl ${isDarkMode ? "text-gray-500" : "text-gray-700"}`}
+      >
+        <FaRocket /> {/* Updated Icon */}
+      </div>
+      <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+        DNS Lookup Speed
+      </h3>
+      <p className="text-gray-500 dark:text-gray-400">
+        Measure the speed of DNS lookups for optimized performance.
+      </p>
+    </motion.div>
+  </motion.div>
+</div>
 
-          </motion.div>
-        </div>
       </section>
     </div>
   );

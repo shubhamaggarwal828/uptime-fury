@@ -96,7 +96,7 @@ const AdvFeatures = () => {
             <motion.img
               src={advancedFeatureImage}
               alt="Advanced Features"
-              className="w-full max-w-2xl rounded-xl shadow-lg ring-1 ring-gray-400/10 dark:ring-gray-600/10 dark:shadow-gray-500/50 sm:w-[80rem] h-full"
+              className="w-full max-w-2xl ring-1 ring-gray-400/10 dark:ring-gray-600/10 dark:shadow-gray-500/50 sm:w-[80rem] h-full"
               width="3500"
               height="2500"
               initial={{ opacity: 0 }}

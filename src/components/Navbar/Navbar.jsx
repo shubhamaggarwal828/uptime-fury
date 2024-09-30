@@ -32,16 +32,29 @@ const Navbar = () => {
 
   const resetDropdowns = () => {
     setIsMenu1Open(false);
-  setIsMenu2Open(false);
+    setIsMenu2Open(false);
   };
 
   const toggleMenu1 = () => {
-    setIsMenu1Open(!isMenu1Open);
+    setIsMenu1Open(true);
+    setIsMenu2Open(false);
+
+    // Close menu1 automatically after 5 seconds
+    setTimeout(() => {
+      setIsMenu1Open(false);
+    }, 5000);
   };
 
   const toggleMenu2 = () => {
-    setIsMenu2Open(!isMenu2Open);
+    setIsMenu2Open(true);
+    setIsMenu1Open(false);
+
+    // Close menu2 automatically after 10 seconds
+    setTimeout(() => {
+      setIsMenu2Open(false);
+    }, 10000); // Changed from 5000 to 10000 milliseconds (10 seconds)
   };
+
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -70,15 +83,14 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`py-3 lg:fixed top-0 left-0 z-50 w-full border-b border-gray-700 ${
-        isScrolled
+      className={`py-3 lg:fixed top-0 left-0 z-50 w-full border-b border-gray-700 ${isScrolled
           ? isDarkMode
             ? "bg-[#121212]"
             : "bg-[#f9f9f9]"
           : isDarkMode
-          ? "bg-[#1f1f1f]"
-          : "bg-[#f9f9f9]"
-      } ${isDarkMode ? "text-white" : "text-black"}`}
+            ? "bg-[#1f1f1f]"
+            : "bg-[#f9f9f9]"
+        } ${isDarkMode ? "text-white" : "text-black"}`}
     >
       <div className="mx-auto custom-width px-2 sm:px-4 lg:px-4">
         <div className="w-full flex flex-col lg:flex-row">
@@ -117,9 +129,8 @@ const Navbar = () => {
             </div>
           </div>
           <div
-            className={`w-full lg:flex lg:pl-11 max-lg:mt-1 max-lg:h-screen max-lg:overflow-y-auto ${
-              isNavbarOpen ? "block" : "hidden"
-            }`}
+            className={`w-full lg:flex lg:pl-11 max-lg:mt-1 max-lg:h-screen max-lg:overflow-y-auto ${isNavbarOpen ? "block" : "hidden"
+              }`}
             id="navbar"
           >
             <ul className="flex lg:items-center lg:justify-center flex-col max-lg:gap-4 max-lg:pt-4 max-lg:mb-4 lg:mt-0 lg:flex-row lg:mx-auto">
@@ -140,9 +151,8 @@ const Navbar = () => {
                 >
                   Our Company
                   <svg
-                    className={`ml-2 h-4 w-4 ${
-                      isDarkMode ? "text-white" : "text-black"
-                    }`}
+                    className={`ml-2 h-4 w-4 ${isDarkMode ? "text-white" : "text-black"
+                      }`}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -160,15 +170,13 @@ const Navbar = () => {
                 <div
                   id="menu2"
                   aria-labelledby="menu2"
-                  className={`dropdown-menu z-10 relative top-3 max-lg:mb-3 lg:absolute lg:top-14 font-normal rounded-lg w-64 xl:p-8 lg:p-4 p-2 ${
-                    isMenu2Open ? "block" : "hidden"
-                  } ${isDarkMode ? "bg-[#1f1f1f]" : "bg-[#f9f9f9]"}`}
+                  className={`dropdown-menu z-10 relative top-3 max-lg:mb-3 lg:absolute lg:top-14 font-normal rounded-lg w-64 xl:p-8 lg:p-4 p-2 ${isMenu2Open ? "block" : "hidden"
+                    } ${isDarkMode ? "bg-[#1f1f1f]" : "bg-[#f9f9f9]"}`}
                 >
                   <ul className="text-sm" aria-labelledby="dropdownLargeButton">
                     <li>
-                   
                       <Link
-                       onClick={toggleMenu2}
+                        onClick={resetDropdowns}
                         to="/about-us"
                         className="block py-3 hover:text-gray-300 xl:text-base lg:text-sm font-semibold transition-all duration-500"
                       >
@@ -176,20 +184,22 @@ const Navbar = () => {
                       </Link>
                     </li>
                     <li>
-                      <a
-                        href="javascript:;"
+                      <Link
+                        onClick={resetDropdowns}
+                        to="/websitemonitoring"
                         className="block py-3 hover:text-gray-300 xl:text-base lg:text-sm font-semibold transition-all duration-500"
                       >
                         Website Monitoring
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="javascript:;"
+                      <Link
+                        onClick={resetDropdowns}
+                        to="/contact-us"
                         className="block py-3 hover:text-gray-300 xl:text-base lg:text-sm font-semibold transition-all duration-500"
                       >
                         Contact Us
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -202,9 +212,8 @@ const Navbar = () => {
                 >
                   Fine Metrics
                   <svg
-                    className={`ml-2 h-4 w-4 ${
-                      isDarkMode ? "text-white" : "text-black"
-                    }`}
+                    className={`ml-2 h-4 w-4 ${isDarkMode ? "text-white" : "text-black"
+                      }`}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -222,9 +231,8 @@ const Navbar = () => {
                 <div
                   id="menu1"
                   aria-labelledby="menu1"
-                  className={`animate-fade z-10 relative top-3 max-lg:mb-3 lg:absolute lg:top-14 lg:-left-80 rounded-lg  max-lg:shadow-inner xl:p-8 lg:p-4 p-2 lg:min-w-[800px] md:min-w-[500px] min-w-full ${
-                    isMenu1Open ? "block" : "hidden"
-                  } ${isDarkMode ? "bg-[#1f1f1f]" : "bg-[#f9f9f9]"}`}
+                  className={`animate-fade z-10 relative top-3 max-lg:mb-3 lg:absolute lg:top-14 lg:-left-80 rounded-lg  max-lg:shadow-inner xl:p-8 lg:p-4 p-2 lg:min-w-[800px] md:min-w-[500px] min-w-full ${isMenu1Open ? "block" : "hidden"
+                    } ${isDarkMode ? "bg-[#1f1f1f]" : "bg-[#f9f9f9]"}`}
                 >
                   <div className="flex flex-col md:flex-row justify-between">
                     <ul
@@ -234,7 +242,7 @@ const Navbar = () => {
                       <li>
                         <Link
                           to="quickstats"
-                          onClick={toggleMenu1}
+                          onClick={resetDropdowns}
                           className="px-3 py-5 transition-all duration-500 hover:bg-[#287150] hover:rounded-xl flex items-center"
                         >
                           <div className="bg-orange-50 rounded-lg w-12 h-12 flex items-center justify-center">
@@ -254,7 +262,7 @@ const Navbar = () => {
                       <li>
                         <Link
                           to="ssl"
-                          onClick={toggleMenu1}
+                          onClick={resetDropdowns}
                           className="px-3 py-5 hover:bg-[#287150] hover:rounded-xl flex items-center transition-all duration-500"
                         >
                           <div className="bg-emerald-50 rounded-lg w-12 h-12 flex items-center justify-center">
@@ -274,7 +282,7 @@ const Navbar = () => {
                       <li>
                         <Link
                           to="ping"
-                          onClick={toggleMenu1}
+                          onClick={resetDropdowns}
                           className="px-3 py-5 hover:bg-[#287150] hover:rounded-xl flex items-center transition-all duration-500"
                         >
                           <div className="bg-blue-50 rounded-lg w-12 h-12 flex items-center justify-center">
@@ -294,7 +302,7 @@ const Navbar = () => {
                       <li>
                         <Link
                           to="http"
-                          onClick={toggleMenu1}
+                          onClick={resetDropdowns}
                           className="px-3 py-5 hover:bg-[#287150] hover:rounded-xl flex items-center transition-all duration-500"
                         >
                           <div className="bg-blue-50 rounded-lg w-12 h-12 flex items-center justify-center">
@@ -319,7 +327,7 @@ const Navbar = () => {
                       <li>
                         <Link
                           to="whois"
-                          onClick={toggleMenu1}
+                          onClick={resetDropdowns}
                           className="px-3 py-5 hover:bg-[#287150] hover:rounded-xl flex items-center transition-all duration-500"
                         >
                           <div className="bg-rose-50 rounded-lg w-12 h-12 flex items-center justify-center">
@@ -339,7 +347,7 @@ const Navbar = () => {
                       <li>
                         <Link
                           to="traceroute"
-                          onClick={toggleMenu1}
+                          onClick={resetDropdowns}
                           className="px-3 py-5 hover:bg-[#287150]hover:rounded-xl flex items-center transition-all duration-500"
                         >
                           <div className="bg-indigo-50 rounded-lg w-12 h-12 flex items-center justify-center">
@@ -359,7 +367,7 @@ const Navbar = () => {
                       <li>
                         <Link
                           to="nslookup"
-                          onClick={toggleMenu1}
+                          onClick={resetDropdowns}
                           className="px-3 py-5 hover:bg-[#287150] hover:rounded-xl flex items-center transition-all duration-500"
                         >
                           <div className="bg-cyan-50 rounded-lg w-12 h-12 flex items-center justify-center">
@@ -379,7 +387,7 @@ const Navbar = () => {
                       <li>
                         <Link
                           to="dnslookup"
-                          onClick={toggleMenu1}
+                          onClick={resetDropdowns}
                           className="px-3 py-5 hover:bg-[#287150] hover:rounded-xl flex items-center transition-all duration-500"
                         >
                           <div className="bg-cyan-50 rounded-lg w-12 h-12 flex items-center justify-center">
@@ -403,12 +411,13 @@ const Navbar = () => {
 
               <li>
                 <a
-                  href="https://speedtest.uptimefury.shubhamaggarwal.engineer/"
+                  href={import.meta.env.VITE_SPEED_TEST_URL}
                   target="_blank"
-                  className="nav-link  block lg:mr-6 md:mb-0 lg:text-left xl:text-base lg:text-sm font-medium transition-all duration-500 hover:text-gray-300"
+                  className="nav-link block lg:mr-6 md:mb-0 lg:text-left xl:text-base lg:text-sm font-medium transition-all duration-500 hover:text-gray-300"
                 >
                   Speed Test
                 </a>
+
               </li>
             </ul>
             <div className="flex lg:items-center w-full justify-start flex-col lg:flex-row gap-4 lg:w-max max-lg:gap-4 lg:ml-14 lg:justify-end">

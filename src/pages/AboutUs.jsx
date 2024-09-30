@@ -1,71 +1,81 @@
 import React from "react";
 import Uptime_Monitoring_Info from "../components/Uptime_Monitoring_Info/Uptime_Monitoring_Info";
-import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { FaCreditCard, FaShieldAlt, FaHeadset } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaGlobe } from 'react-icons/fa';
+import { FaNetworkWired, FaChartLine, FaCheckCircle } from 'react-icons/fa';
 import { motion } from "framer-motion";
-import FaqSection from "../components/FaqSection/FaqSection";
+import FaqSection from "../components/FaqSection/FaqSection"; 
 import GetStarted from "../components/GetStarted/GetStarted";
+import founder1 from "../assets/img/founder1.svg";
+import founder2 from "../assets/img/founder2.jpg";
+const founder1weburl = "https://shubham-aggarwal.com/";
+const founder1giturl = "https://github.com/GJG-GUNDO";
+const founder1linkedinurl = "https://www.linkedin.com/in/shubham-aggarwal1215/";
+
 
 const AboutUs = () => {
   const isDarkMode = false;
   const itemVariants = {};
 
-  const features = [
+  const features =[
     {
-      title: "Easy Payment",
+      title: "Our Mission",
       description:
-        "We Provide Various Methods For You To Carry Out All Transactions Related To Your Finances",
-      icon: FaCreditCard,
+        "To provide real-time, reliable monitoring solutions that ensure uninterrupted uptime for websites and services.",
+      icon: FaNetworkWired, // Icon representing mission (e.g., network or connection)
     },
     {
-      title: "Safe Transaction",
+      title: "Our Vision",
       description:
-        "We have the most up-to-date security to support the security of all our customers in carrying out all transactions.",
-      icon: FaShieldAlt,
+        "To be the most trusted platform for website uptime monitoring, helping businesses maintain seamless digital experiences.",
+      icon: FaChartLine, // Icon representing vision (e.g., upward growth chart)
     },
     {
-      title: "Fast Customer Service",
+      title: "Our Values",
       description:
-        "Provide Customer Service For Those Of You Who Have Problems 24 Hours A Week",
-      icon: FaHeadset,
+        "We prioritize accuracy, transparency, and responsiveness, delivering the best monitoring services for our users.",
+      icon: FaCheckCircle, // Icon representing values (e.g., checkmark or quality)
     },
   ];
+  
 
-  const TeamMember = ({ name, title, description, imageUrl }) => {
-    return (
-      <div className="group w-full flex flex-wrap items-center gap-8 transition-all duration-500 p-8 lg:flex-nowrap">
-        <div className="w-full lg:w-48 h-64">
-          <img
-            src={imageUrl}
-            alt={name}
-            className="rounded-2xl h-full object-cover mx-auto lg:mx-0 lg:w-full"
-          />
+
+const TeamMember = ({ name, title, description, imageUrl, websiteUrl, githubUrl, linkedinUrl }) => {
+  return (
+    <div className="group w-full flex flex-wrap items-center gap-8 transition-all duration-500 p-8 lg:flex-nowrap">
+      <div className="w-full lg:w-48 h-64">
+        <img
+          src={imageUrl}
+          alt={name}
+          className="rounded-2xl h-full object-cover mx-auto lg:mx-0 lg:w-full overflow-hidden"
+        />
+      </div>
+      <div className="text-center lg:text-left lg:max-w-xs flex-1">
+        <div className="mb-5 pb-5 border-b border-solid border-gray-300">
+          <h6 className="text-lg text-gray-900 dark:text-white font-semibold mb-1">
+            {name}
+          </h6>
+          <span className="text-sm font-bold text-[#287150] dark:text-[#35976b] group-hover:text-[#287150] dark:text-[#35976b]">
+            {title}
+          </span>
         </div>
-        <div className="text-center lg:text-left lg:max-w-xs flex-1">
-          <div className="mb-5 pb-5 border-b border-solid border-gray-300">
-            <h6 className="text-lg text-gray-900 dark:text-white font-semibold mb-1">
-              {name}
-            </h6>
-            <span className="text-sm font-bold text-[#287150] dark:text-[#35976b] group-hover:text-[#287150] dark:text-[#35976b]">
-              {title}
-            </span>
-          </div>
-          <p className="text-gray-500 leading-6 mb-7">{description}</p>
-          <div className="flex items-center gap-4 justify-center lg:justify-start">
-            <p className="cursor-pointer text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-[#35976b]">
-              <FaTwitter className="w-5 h-5" />
-            </p>
-            <p className="cursor-pointer text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-[#35976b]">
-              <FaInstagram className="w-5 h-5" />
-            </p>
-            <p className="cursor-pointer text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-[#35976b]">
-              <FaLinkedin className="w-5 h-5" />
-            </p>
-          </div>
+        <p className="text-gray-500 leading-6 mb-7">{description}</p>
+        <div className="flex items-center gap-4 justify-center lg:justify-start">
+          <a href={websiteUrl} target="_blank" rel="noopener noreferrer" className="cursor-pointer text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-[#35976b]">
+            <FaGlobe className="w-5 h-5" />
+          </a>
+          <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="cursor-pointer text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-[#35976b]">
+            <FaGithub className="w-5 h-5" />
+          </a>
+          <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="cursor-pointer text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-[#35976b]">
+            <FaLinkedin className="w-5 h-5" />
+          </a>
         </div>
       </div>
-    );
-  };
+    </div>
+  );
+};
+
+
 
   return (
     <div>
@@ -77,8 +87,7 @@ const AboutUs = () => {
             fontFamily: "Slabo 27px, serif",
             fontWeight: 700,
             maxWidth: "fit-content",
-          }}
-          variants={itemVariants}
+          }} 
         >
           <span className="font-inter text-sm font-large text-gray-900 ml-3 dark:text-white">
             About Us
@@ -128,13 +137,13 @@ const AboutUs = () => {
           <div className="mb-10 lg:mb-16 flex justify-center items-center flex-col gap-x-0 gap-y-6 lg:gap-y-0 lg:flex-row lg:justify-between max-md:max-w-lg max-md:mx-auto">
             <div className="relative w-full text-center lg:text-left lg:w-2/4">
               <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-100 leading-[3.25rem] lg:mb-6 mx-auto max-w-max lg:max-w-md lg:mx-0">
-                Enjoy the finest features with our products
-              </h2>
+              Our Mission, Vision, and Values
+                            </h2>
             </div>
             <div className="relative w-full text-center lg:text-left lg:w-2/4">
               <p className="text-lg font-normal text-gray-500 dark:text-white mb-5">
                 We provide all the advantages that can simplify all your
-                financial transactions without any further requirements
+                website monitoring needs without any further requirements
               </p>
             </div>
           </div>
@@ -163,68 +172,61 @@ const AboutUs = () => {
       </section>
 
       <section className="relative isolate overflow-hidden bg-white dark:bg-[#121212] px-6 py-24 sm:py-32 lg:px-8 border-b border-gray-200 dark:border-gray-700">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] dark:bg-[radial-gradient(45rem_50rem_at_top,#121212,#000000)] opacity-20" />
-        <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white dark:bg-[#121212] sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
-        <div className="mx-auto max-w-2xl lg:max-w-4xl">
-          <figure className="mt-10">
-            <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 dark:text-gray-100 sm:text-2xl sm:leading-9">
-              <p>
-                “Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                expedita voluptas culpa sapiente alias molestiae. Numquam
-                corrupti in laborum sed rerum et corporis.”
-              </p>
-            </blockquote>
-            <figcaption className="mt-10">
-              <img
-                alt=""
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                className="mx-auto h-10 w-10 rounded-full"
-              />
-              <div className="mt-4 flex items-center justify-center space-x-3 text-base">
-                <div className="font-semibold text-gray-900 dark:text-gray-100">
-                  Judith Black
-                </div>
-                <svg
-                  width={3}
-                  height={3}
-                  viewBox="0 0 2 2"
-                  aria-hidden="true"
-                  className="fill-gray-900 dark:fill-gray-100"
-                >
-                  <circle r={1} cx={1} cy={1} />
-                </svg>
-                <div className="text-gray-600 dark:text-gray-400">
-                  CEO of Workcation
-                </div>
-              </div>
-            </figcaption>
-          </figure>
+  <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] dark:bg-[radial-gradient(45rem_50rem_at_top,#121212,#000000)] opacity-20" />
+  <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white dark:bg-[#121212] sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
+  <div className="mx-auto max-w-2xl lg:max-w-4xl">
+    <figure className="mt-10">
+      <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 dark:text-gray-100 sm:text-2xl sm:leading-9">
+        <p>
+        "Uptime is the pulse of every digital experience. In a world where seconds of downtime can cost trust, revenue, and reputation, staying online isn't just important—it's everything."        </p>
+      </blockquote>
+      <figcaption className="mt-10">
+        <div className="mt-4 flex items-center justify-center space-x-3 text-base">
+         
+          <svg
+            width={3}
+            height={3}
+            viewBox="0 0 2 2"
+            aria-hidden="true"
+            className="fill-gray-900 dark:fill-gray-100"
+          >
+            <circle r={1} cx={1} cy={1} />
+          </svg>
+          <div className="text-gray-600 dark:text-gray-400">
+            Founders UpTime Fury
+          </div>
         </div>
-      </section>
+      </figcaption>
+    </figure>
+  </div>
+</section>
 
       <section className="py-14 lg:py-24 bg-white dark:bg-[#121212] border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-24">
             <h2 className="font-manrope text-4xl text-center font-bold text-gray-900 dark:text-white mb-6">
-              Meet our soldier of finance
+            Meet the Team Behind Uptime Fury
             </h2>
             <p className="text-lg text-gray-500 dark:text-gray-400 text-center">
-              We provide all the advantage that can simplify all your financial
-              and banking support without any further issues.
+            We are committed to delivering seamless uptime monitoring solutions, ensuring your website stays online and your users stay happy.
             </p>
           </div>
           <div className="group w-full flex-wrap flex items-center gap-8 transition-all duration-500 p-8 lg:flex-nowrap">
             <TeamMember
-              name="Harsh Patel"
-              title="Co-Founder & CEO"
-              description="I am the co-founder of pagedone and we’ve pushed our limit so far to make it successful."
-              imageUrl="https://pagedone.io/asset/uploads/1696238869.png"
+            name="Shubham Aggarwal"
+            title="Founder & Lead Engineer"
+            description="As the Lead Engineer and Founder of Uptime Fury, my focus is on delivering cutting-edge monitoring solutions that ensure websites operate efficiently and without interruption."
+            imageUrl={founder1} // Replace with actual image URL
+            websiteUrl ={founder1weburl}
+            githubUrl={founder1giturl}
+            linkedinUrl={founder1linkedinurl}
             />
             <TeamMember
-              name="Alexa Kimberly"
-              title="Lead Designer"
-              description="I’ve been lead designer for pagedone since the beginning of it and enjoyed every bit."
-              imageUrl="https://pagedone.io/asset/uploads/1696238869.png"
+               name="Mrinal Gupta"
+               title="Founder & Front-end Engineer"
+               description="With a passion for frontend development, I ensure Uptime Fury delivers a seamless, user-friendly interface, offering real-time insights with a focus on performance and accessibility."
+               imageUrl={founder2} // Replace with actual image URL
+            
             />
           </div>
         </div>

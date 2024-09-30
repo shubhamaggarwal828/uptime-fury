@@ -48,14 +48,14 @@ const WhoisData = () => {
 
     return url; // Return the validated and formatted URL
   };
-  
-  
+
+
 
 
   const renderTableRows = (data, isDarkMode, tableType) => {
     let headers = {};
     let rows = [];
-  
+
     // Define headers and rows based on the table type
     switch (tableType) {
       case 'fields':
@@ -64,45 +64,45 @@ const WhoisData = () => {
           headerValue: "Header Value",
         };
         rows = [
-         
-          
-            { "headerName": "URL", "headerValue": data.whois.domainName },
-            { "headerName": "Registry Domain ID", "headerValue": data.whois.registryDomainID },
-            { "headerName": "Registrar WHOIS Server", "headerValue": data.whois.registrarWhoisServer },
-            { "headerName": "Registrar URL", "headerValue": data.whois.registrarURL },
-            { "headerName": "Updated Date", "headerValue": data.whois.updatedDate },
-            { "headerName": "Creation Date", "headerValue": data.whois.creationDate },
-            { "headerName": "Expiration Date", "headerValue": data.whois.expirationDate },
-            { "headerName": "Registrar", "headerValue": data.whois.registrar },
-            { "headerName": "Registrar IANA ID", "headerValue": data.whois.registrarIANAID },
-            { "headerName": "Registrar Abuse Contact Email", "headerValue": data.whois.registrarAbuseContactEmail },
-            { "headerName": "Registrar Abuse Contact Phone", "headerValue": data.whois.registrarAbuseContactPhone },
-            { "headerName": "Domain Status", "headerValue": data.whois.domainStatus },
-            { "headerName": "Registrant Organization", "headerValue": data.whois.registrantOrganization },
-            { "headerName": "Registrant State/Province", "headerValue": data.whois.registrantStateProvince },
-            { "headerName": "Registrant Country", "headerValue": data.whois.registrantCountry },
-            { "headerName": "Registrant Phone", "headerValue": data.whois.registrantPhone },
-            { "headerName": "Registrant Email", "headerValue": data.whois.registrantEmail },
-            { "headerName": "Admin Organization", "headerValue": data.whois.adminOrganization },
-            { "headerName": "Admin State/Province", "headerValue": data.whois.adminStateProvince },
-            { "headerName": "Admin Country", "headerValue": data.whois.adminCountry },
-            { "headerName": "Admin Phone", "headerValue": data.whois.adminPhone },
-            { "headerName": "Admin Email", "headerValue": data.whois.adminEmail },
-            { "headerName": "Tech Organization", "headerValue": data.whois.techOrganization },
-            { "headerName": "Tech State/Province", "headerValue": data.whois.techStateProvince },
-            { "headerName": "Tech Country", "headerValue": data.whois.techCountry },
-            { "headerName": "Tech Phone", "headerValue": data.whois.techPhone },
-            { "headerName": "Tech Email", "headerValue": data.whois.techEmail },
-            { "headerName": "Name Servers", "headerValue": data.whois.nameServers.join(', ') },
-            { "headerName": "DNSSEC", "headerValue": data.whois.dnssec },
-            { "headerName": "ICANN URL", "headerValue": data.whois.icannURL },
-            { "headerName": "Last Update", "headerValue": data.whois.lastUpdate },
-            { "headerName": "WHOIS Status Codes Info", "headerValue": data.whois.whoisStatusCodesInfo },
-        
-        
+
+
+          { "headerName": "URL", "headerValue": data.whois.domainName },
+          { "headerName": "Registry Domain ID", "headerValue": data.whois.registryDomainID },
+          { "headerName": "Registrar WHOIS Server", "headerValue": data.whois.registrarWhoisServer },
+          { "headerName": "Registrar URL", "headerValue": data.whois.registrarURL },
+          { "headerName": "Updated Date", "headerValue": data.whois.updatedDate },
+          { "headerName": "Creation Date", "headerValue": data.whois.creationDate },
+          { "headerName": "Expiration Date", "headerValue": data.whois.expirationDate },
+          { "headerName": "Registrar", "headerValue": data.whois.registrar },
+          { "headerName": "Registrar IANA ID", "headerValue": data.whois.registrarIANAID },
+          { "headerName": "Registrar Abuse Contact Email", "headerValue": data.whois.registrarAbuseContactEmail },
+          { "headerName": "Registrar Abuse Contact Phone", "headerValue": data.whois.registrarAbuseContactPhone },
+          { "headerName": "Domain Status", "headerValue": data.whois.domainStatus },
+          { "headerName": "Registrant Organization", "headerValue": data.whois.registrantOrganization },
+          { "headerName": "Registrant State/Province", "headerValue": data.whois.registrantStateProvince },
+          { "headerName": "Registrant Country", "headerValue": data.whois.registrantCountry },
+          { "headerName": "Registrant Phone", "headerValue": data.whois.registrantPhone },
+          { "headerName": "Registrant Email", "headerValue": data.whois.registrantEmail },
+          { "headerName": "Admin Organization", "headerValue": data.whois.adminOrganization },
+          { "headerName": "Admin State/Province", "headerValue": data.whois.adminStateProvince },
+          { "headerName": "Admin Country", "headerValue": data.whois.adminCountry },
+          { "headerName": "Admin Phone", "headerValue": data.whois.adminPhone },
+          { "headerName": "Admin Email", "headerValue": data.whois.adminEmail },
+          { "headerName": "Tech Organization", "headerValue": data.whois.techOrganization },
+          { "headerName": "Tech State/Province", "headerValue": data.whois.techStateProvince },
+          { "headerName": "Tech Country", "headerValue": data.whois.techCountry },
+          { "headerName": "Tech Phone", "headerValue": data.whois.techPhone },
+          { "headerName": "Tech Email", "headerValue": data.whois.techEmail },
+          { "headerName": "Name Servers", "headerValue": data.whois.nameServers.join(', ') },
+          { "headerName": "DNSSEC", "headerValue": data.whois.dnssec },
+          { "headerName": "ICANN URL", "headerValue": data.whois.icannURL },
+          { "headerName": "Last Update", "headerValue": data.whois.lastUpdate },
+          { "headerName": "WHOIS Status Codes Info", "headerValue": data.whois.whoisStatusCodesInfo },
+
+
         ];
         break;
-  
+
       case 'dump':
         headers = {
           rawData: "WHOIS Data Dump",
@@ -110,11 +110,11 @@ const WhoisData = () => {
         const rawData = data.whois?.data || '';
         rows = rawData.split('\n').map(line => ({ rawData: line.trim() }));
         break;
-  
+
       default:
         return null;
     }
-  
+
     return (
       <React.Fragment>
         <thead
@@ -142,7 +142,7 @@ const WhoisData = () => {
             ))}
           </motion.tr>
         </thead>
-  
+
         <tbody>
           {rows.map((row, rowIndex) => (
             <motion.tr
@@ -167,7 +167,7 @@ const WhoisData = () => {
       </React.Fragment>
     );
   };
-  
+
 
 
 
@@ -250,9 +250,11 @@ const WhoisData = () => {
   return (
     <div>
       <section
-        className={`min-h-[calc(100vh-15rem)] flex flex-col items-center justify-center px-4 lg:px-8 ${isDarkMode ? "bg-[#121212]" : "bg-[#ffffff]"
+
+        className={`min-h-[calc(100vh-15rem)] flex flex-col items-center justify-center px-4 lg:px-8 ${isDarkMode ? "bg-[#121212]" : "bg-[#ffffff] "
           }`}
       >
+
         <div className="relative grid py-8 mx-auto max-w-[1400px] lg:gap-8 xl:gap-0 lg:grid-cols-12 items-center">
           <motion.div
             className="place-self-center text-left lg:col-span-7"
@@ -279,7 +281,7 @@ const WhoisData = () => {
               style={{ fontFamily: "Slabo 27px, serif", fontWeight: 500 }}
               variants={itemVariants}
             >
-              In-Depth WHOIS Information  
+              In-Depth WHOIS Information
               <br />
               <span
                 className="mt-4 block"
@@ -472,67 +474,68 @@ const WhoisData = () => {
           className={`max-w-[1280px] py-8 lg:py-12 ${isDarkMode ? "bg-[#121212]" : "bg-[#ffffff]"
             }`}
         >
-          
-<motion.div
-  className="flex flex-col lg:flex-row flex-wrap justify-between items-start gap-6 px-4 lg:px-0"
-  initial="hidden"
-  animate="visible"
-  variants={containerVariants}
->
-  {/* Domain Details */}
-  <motion.div
-    className="text-left space-y-2 flex-1 min-w-[200px]"
-    variants={itemVariants}
-  >
-    <div
-      className={`flex justify-start text-4xl ${isDarkMode ? "text-gray-500" : "text-gray-700"}`}
-    >
-      <FaGlobe /> {/* Domain Icon */}
-    </div>
-    <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-      Domain Overview
-    </h3>
-    <p className="text-gray-500 dark:text-gray-400">
-      Access essential details about the domain, including its registration and expiration dates.
-    </p>
-  </motion.div>
 
-  {/* Registrar Information */}
-  <motion.div
-    className="text-left space-y-2 flex-1 min-w-[200px]"
-    variants={itemVariants}
-  >
-    <div
-      className={`flex justify-start text-4xl ${isDarkMode ? "text-gray-500" : "text-gray-700"}`}
-    >
-      <FaUserShield /> {/* Registrar Icon */}
-    </div>
-    <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-      Registrar Information
-    </h3>
-    <p className="text-gray-500 dark:text-gray-400">
-      Discover who manages the domain and how to get in touch with them for issues or inquiries.
-    </p>
-  </motion.div>
+          <motion.div
+            className="flex flex-col lg:flex-row flex-wrap justify-between items-start gap-6 px-4 lg:px-0"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+          >
+            {/* Domain Details */}
+            <motion.div
+              className="text-left space-y-2 flex-1 min-w-[200px]"
+              variants={itemVariants}
+            >
+              <div
+                className={`flex justify-start text-4xl ${isDarkMode ? "text-gray-500" : "text-gray-700"}`}
+              >
+                <FaGlobe /> {/* Domain Icon */}
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                Domain Overview
+              </h3>
+              <p className="text-gray-500 dark:text-gray-400">
+                Access essential details about the domain, including its registration and expiration dates.
+              </p>
+            </motion.div>
 
-  {/* Registration Dates */}
-  <motion.div
-    className="text-left space-y-2 flex-1 min-w-[200px]"
-    variants={itemVariants}
-  >
-    <div
-      className={`flex justify-start text-4xl ${isDarkMode ? "text-gray-500" : "text-gray-700"}`}
-    >
-      <FaCalendarAlt /> {/* Calendar Icon */}
-    </div>
-    <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-      Key Dates
-    </h3>
-    <p className="text-gray-500 dark:text-gray-400">
-      Check the important dates associated with the domain, including creation, last update, and expiration.
-    </p>
-  </motion.div>
-</motion.div>
+            {/* Registrar Information */}
+            <motion.div
+              className="text-left space-y-2 flex-1 min-w-[200px]"
+              variants={itemVariants}
+            >
+              <div
+                className={`flex justify-start text-4xl ${isDarkMode ? "text-gray-500" : "text-gray-700"}`}
+              >
+                <FaUserShield /> {/* Registrar Icon */}
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                Registrar Information
+              </h3>
+              <p className="text-gray-500 dark:text-gray-400">
+                Discover who manages the domain and how to get in touch with them for issues or inquiries.
+              </p>
+            </motion.div>
+
+            {/* Registration Dates */}
+            <motion.div
+              className="text-left space-y-2 flex-1 min-w-[200px]"
+              variants={itemVariants}
+            >
+              <div
+                className={`flex justify-start text-4xl ${isDarkMode ? "text-gray-500" : "text-gray-700"}`}
+              >
+                <FaCalendarAlt /> {/* Calendar Icon */}
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                Key Dates
+              </h3>
+              <p className="text-gray-500 dark:text-gray-400">
+                Check the important dates associated with the domain, including creation, last update, and expiration.
+              </p>
+
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </div>

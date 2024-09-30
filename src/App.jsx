@@ -14,6 +14,8 @@ import DNSLookup from "./pages/DNSLookup";
 import Footer from "./components/Footer/Footer"; 
 import ScrollToTop from "./ScrollToTop";
 import AboutUs from "./pages/AboutUs";
+import ContactUs from "./pages/ContactUs";
+import WebsiteMonitoring from "./pages/WebsiteMonitoring";
 
 
 const App = () => {
@@ -34,10 +36,8 @@ const App = () => {
           <Route path='/NSLookup' element={<NSLookup/>} />
           <Route path='/DNSLookup' element={<DNSLookup/>} />
           <Route path='/about-us' element={<AboutUs/>} />
-
-
-          
-
+          <Route path='/contact-us' element={<ContactUs/>} />
+          <Route path='/websitemonitoring' element={<WebsiteMonitoring/>} />
 
 
 

@@ -14,19 +14,21 @@ import logoFooter from "../../assets/img/logo_footer.png";
 const Footer = () => {
   return (
     <footer className="bg-[#f9f9f9] dark:bg-[#121212]">
+      <hr className="border-gray-300 dark:border-gray-700 w-full" />
+
       <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
             <Link to="/" className="flex items-center">
-            <img
-  src={logoFooter}
-  className="mx-auto -ml-2 pl-8 h-20 sm:h-20 md:h-40 lg:h-60 transition-opacity duration-300 opacity-100"
-  alt="Logo"
-/>
-      
+              <img
+                src={logoFooter}
+                className="mx-auto -ml-2 pl-8 h-20 sm:h-20 md:h-40 lg:h-60 transition-opacity duration-300 opacity-100"
+                alt="Logo"
+              />
+
             </Link>
             <p className="mt-4 max-w-xs text-gray-500 dark:text-gray-400">
-            Monitoring your websites uptime and performance seamlessly.
+              Monitoring your websites uptime and performance seamlessly.
 
             </p>
 
@@ -238,8 +240,8 @@ const Footer = () => {
           </div>
         </div>
         <hr className="border-gray-300 dark:border-gray-700 w-full" />
-        <div className="flex justify-between items-center mt-4">
-          <div className="flex items-center">
+        <div className="flex flex-col md:flex-row justify-between items-center mt-4 px-4">
+          <div className="flex items-center mb-4 md:mb-0">
             <img
               src={logo}
               className="mr-3 h-8 sm:h-12" // Increased logo size
@@ -247,7 +249,7 @@ const Footer = () => {
             />
             <p className="text-md font-bold text-gray-900 dark:text-white">UPTIME FURY</p> {/* Added text */}
           </div>
-          <p className="text-md text-gray-500 dark:text-gray-400 text-center flex-1">
+          <p className="text-md text-gray-500 dark:text-gray-400 text-center flex-1 mb-4 md:mb-0">
             &copy; 2024 Uptime Fury. All rights reserved.
           </p>
           <div className="flex space-x-4 text-md text-gray-500 dark:text-gray-400">
@@ -256,7 +258,6 @@ const Footer = () => {
             <a href="#" className="hover:underline">Conditions</a>
           </div>
         </div>
-
 
       </div>
     </footer>

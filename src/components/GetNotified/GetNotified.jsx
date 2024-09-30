@@ -241,7 +241,7 @@ const logos = [
 const GetNotified = () => {
   return (
     <div className="bg-white dark:bg-[#121212] text-black dark:text-white py-16 border-b border-gray-200 dark:border-gray-700">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-between mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Left section: Text and Buttons */}
           <div className="lg:w-1/2 mb-8 lg:mb-0 text-center lg:text-left">
