@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-
+import dashimage from "../../assets/img/dashboard.png";
 const Hero = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -40,9 +40,8 @@ const Hero = () => {
 
   return (
     <motion.div
-      className={`w-full md:pt-2 lg:pt-16 xl:pt-20 flex items-center justify-center transition-colors duration-300 ${
-        isDarkMode ? "bg-[#121212]" : "bg-[#ffffff]"
-      } border-b border-gray-200 dark:border-gray-700`}
+      className={`w-full md:pt-2 lg:pt-16 xl:pt-20 flex items-center justify-center transition-colors duration-300 ${isDarkMode ? "bg-[#121212]" : "bg-[#ffffff]"
+        } border-b border-gray-200 dark:border-gray-700`}
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -142,10 +141,11 @@ const Hero = () => {
         </motion.a>
         <motion.div className="flex justify-center" variants={itemVariants}>
           <img
-            src="https://pagedone.io/asset/uploads/1691054543.png"
+            src={dashimage}
             alt="Uptime Monitor Dashboard"
-            className="rounded-t-3xl h-auto object-cover w-full sm:w-auto"
+            className="rounded-t-3xl h-auto object-cover w-[80%] mx-auto"
           />
+
         </motion.div>
       </div>
     </motion.div>

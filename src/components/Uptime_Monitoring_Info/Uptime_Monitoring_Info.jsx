@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaLock, FaClock, FaBell, FaChartLine, FaComments } from "react-icons/fa";
+import featureImg from "../../assets/img/features.png";
 
 const Uptime_Monitoring_Info = () => {
   // Initialize the dark mode state
@@ -75,7 +76,7 @@ const Uptime_Monitoring_Info = () => {
           <div className="w-full xl:col-span-7 lg:col-span-6 hidden lg:block mx-auto">
             <div className="w-full sm:w-auto lg:w-[60.8125rem] max-w-full">
               <img
-                src="https://pagedone.io/asset/uploads/1695031065.png"
+                src={featureImg}
                 alt="Feature tailwind section"
                 className="w-full rounded-3xl lg:h-auto object-cover"
               />
