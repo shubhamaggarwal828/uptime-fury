@@ -422,10 +422,20 @@ const Navbar = () => {
             </ul>
             <div className="flex lg:items-center w-full justify-start flex-col lg:flex-row gap-4 lg:w-max max-lg:gap-4 lg:ml-14 lg:justify-end">
               <button className="bg-gray-700 text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 py-3 px-6 text-sm hover:bg-gray-600">
-                Login
+              <a
+                href={import.meta.env.VITE_DASHBOARD_URL_LOGIN}
+                  target="_blank"
+                >
+                  Login
+                </a> 
               </button>
               <button className="bg-[#287150] text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 py-3 px-6 text-sm hover:bg-[#205c44]">
-                Register
+              <a
+                  href={import.meta.env.VITE_DASHBOARD_URL_REGISTER}
+                  target="_blank"
+                >
+                 Register
+                </a> 
               </button>
               <button
                 onClick={toggleDarkMode}
