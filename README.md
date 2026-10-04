@@ -4,21 +4,28 @@
 [![React 18](https://img.shields.io/badge/React-18.x-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-5.x-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.x-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![Backend Engine](https://img.shields.io/badge/backend%20daemon-Render%20Online-00e5a3?style=for-the-badge&logo=render)](https://uptime-monitor-backend-latest.onrender.com)
 [![Docker Image](https://img.shields.io/badge/backend%20docker-ready-2496ED?style=for-the-badge&logo=docker)](https://hub.docker.com/r/shubhamaggarwal828/uptime-monitor-backend)
 
 > A modern, developer-first diagnostic workbench built for Systems Administrators, SREs, and Network Engineers. Benchmark live server latency, perform asynchronous TCP socket audits, inspect global Anycast DNS propagation, analyze HTTP security posture, and inspect BGP autonomous systems.
 
 ---
 
-## 📸 Screenshots & UI Showcase
+## 📸 Real Application Showcase
 
 ### 1. Unified Overview Hub
 ![Overview Hub](docs/images/dashboard-preview.png)
 
-### 2. HTTP Security Posture & Vulnerability Audit
+### 2. Distributed ICMP Ping & Latency Telemetry
+![ICMP Ping](docs/images/ping-diagnostics.png)
+
+### 3. Asynchronous TCP Port Scanner
+![TCP Port Scanner](docs/images/port-scanner.png)
+
+### 4. HTTP Security Posture & Vulnerability Audit
 ![Security Audit](docs/images/security-audit.png)
 
-### 3. SysOps Settings Vault & Probe Manager
+### 5. SysOps Settings Vault & Active Probe Node
 ![Settings Vault](docs/images/settings-vault.png)
 
 ---
