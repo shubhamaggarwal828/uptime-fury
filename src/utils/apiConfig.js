@@ -1,43 +1,19 @@
-// Global API Configuration with user-configurable backend servers
+// Global API Configuration with the active backend server
 export const INITIAL_DEFAULT_SERVERS = [
   {
-    id: "local",
-    name: "Primary Daemon (Local / Default)",
-    url: import.meta.env.VITE_API_URI_FOR_METRICS || "http://localhost:5012",
-    location: "US East / Localhost",
-    region: "Local Daemon",
+    id: "active-daemon",
+    name: "Production Telemetry Engine",
+    url: import.meta.env.VITE_API_URI_FOR_METRICS || "https://uptime-monitor-backend-latest.onrender.com",
+    location: "Global Edge / Render Cloud",
+    region: "Primary Node",
     color: "cyan",
     isDefault: true
-  },
-  {
-    id: "us-west",
-    name: "North America Edge (Oregon)",
-    url: "https://us-west.uptimefury.shubham-aggarwal.com",
-    location: "US-West (Hillsboro, OR)",
-    region: "Edge Probe",
-    color: "emerald"
-  },
-  {
-    id: "eu-central",
-    name: "Europe Core (Frankfurt)",
-    url: "https://eu-central.uptimefury.shubham-aggarwal.com",
-    location: "EU-Central (Frankfurt, DE)",
-    region: "Edge Probe",
-    color: "purple"
-  },
-  {
-    id: "ap-south",
-    name: "Asia Pacific (Mumbai)",
-    url: "https://ap-south.uptimefury.shubham-aggarwal.com",
-    location: "AP-South (Mumbai, IN)",
-    region: "Edge Probe",
-    color: "amber"
   }
 ];
 
 export const getStoredServers = () => {
   try {
-    const raw = localStorage.getItem("sysops_probe_servers_v2");
+    const raw = localStorage.getItem("sysops_probe_servers_v3");
     if (raw) return JSON.parse(raw);
   } catch (e) {
     console.error(e);
@@ -46,7 +22,7 @@ export const getStoredServers = () => {
 };
 
 export const saveStoredServers = (servers) => {
-  localStorage.setItem("sysops_probe_servers_v2", JSON.stringify(servers));
+  localStorage.setItem("sysops_probe_servers_v3", JSON.stringify(servers));
 };
 
 export const getAllServers = () => {
@@ -54,7 +30,7 @@ export const getAllServers = () => {
   const customBackendUrl = localStorage.getItem("sysops_custom_backend_url");
 
   return servers.map(s => {
-    if (s.id === "local" && customBackendUrl && customBackendUrl.trim()) {
+    if ((s.id === "active-daemon" || s.id === "local") && customBackendUrl && customBackendUrl.trim()) {
       return { ...s, url: customBackendUrl.trim().replace(/\/+$/, "") };
     }
     return { ...s };
@@ -62,7 +38,7 @@ export const getAllServers = () => {
 };
 
 export const getActiveServerId = () => {
-  return localStorage.getItem("sysops_active_server_id") || "local";
+  return localStorage.getItem("sysops_active_server_id") || "active-daemon";
 };
 
 export const setActiveServerId = (id) => {
@@ -76,17 +52,15 @@ export const getActiveBackendUrl = () => {
     return customBackendUrl.trim().replace(/\/+$/, "");
   }
 
-  // Otherwise check if a remote server was selected
+  // Otherwise check if a server was selected
   const activeId = getActiveServerId();
-  if (activeId !== "local") {
-    const servers = getStoredServers();
-    const match = servers.find(s => s.id === activeId);
-    if (match && match.url) {
-      return match.url.replace(/\/+$/, "");
-    }
+  const servers = getAllServers();
+  const match = servers.find(s => s.id === activeId) || servers[0];
+  if (match && match.url) {
+    return match.url.replace(/\/+$/, "");
   }
 
-  return (import.meta.env.VITE_API_URI_FOR_METRICS || "http://localhost:5012").replace(/\/+$/, "");
+  return (import.meta.env.VITE_API_URI_FOR_METRICS || "https://uptime-monitor-backend-latest.onrender.com").replace(/\/+$/, "");
 };
 
 export const getEndpoint = (path) => {

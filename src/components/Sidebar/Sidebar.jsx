@@ -5,6 +5,7 @@ import {
   Cpu, Wrench, Settings as SettingsIcon, Wifi, 
   Activity, Radio, Home, Network
 } from "lucide-react";
+import { getActiveBackendUrl } from "../../utils/apiConfig";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -157,11 +158,11 @@ const Sidebar = () => {
               CONNECTED
             </span>
           </div>
-          <div className="text-[10px] text-cyan-400 font-mono truncate" title={localStorage.getItem("sysops_custom_backend_url") || "http://localhost:5012"}>
-            {localStorage.getItem("sysops_custom_backend_url") || "http://localhost:5012"}
+          <div className="text-[10px] text-cyan-400 font-mono truncate" title={getActiveBackendUrl()}>
+            {getActiveBackendUrl()}
           </div>
           <div className="text-[10px] text-gray-500 truncate">
-            DNS Resolver: {localStorage.getItem("sysops_default_dns") || "8.8.8.8"}
+            DNS Resolver: {localStorage.getItem("sysops_default_dns") || "1.1.1.1"}
           </div>
         </div>
       </div>
