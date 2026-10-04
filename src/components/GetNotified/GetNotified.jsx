@@ -259,7 +259,13 @@ const GetNotified = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Get started now
+                 <a
+                href={import.meta.env.VITE_DASHBOARD_URL_LOGIN}
+                  target="_blank"
+                >
+                        Get started now
+                </a> 
+          
               </button>
             </div>
           </div>

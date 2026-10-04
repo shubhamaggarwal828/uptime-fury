@@ -56,7 +56,12 @@ const GetStarted = ({ isDarkMode }) => {
           onMouseEnter={(e) => (e.target.style.backgroundColor = "#287150")}
           onMouseLeave={(e) => (e.target.style.backgroundColor = "#35976b")}
         >
-          Get Started
+            <a
+                href={import.meta.env.VITE_DASHBOARD_URL_LOGIN}
+                  target="_blank"
+                >
+                        Get started now
+                </a> 
           <svg
             className="ml-2"
             width="20"

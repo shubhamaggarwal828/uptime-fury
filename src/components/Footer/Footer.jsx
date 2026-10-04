@@ -1,264 +1,74 @@
 import React from "react";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaTwitter,
-  FaGithub,
-  FaDribbble,
-} from "react-icons/fa";
-import { Link } from "react-router-dom"; // Make sure to import Link
-import logo from "../../assets/img/logo.png";
-import logoFooter from "../../assets/img/logo_footer.png";
-
+import { Link } from "react-router-dom";
+import { Activity, Shield, Terminal, Globe, GitBranch, Heart } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#f9f9f9] dark:bg-[#121212]">
-      <hr className="border-gray-300 dark:border-gray-700 w-full" />
-
-      <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          <div>
-            <Link to="/" className="flex items-center">
-              <img
-                src={logoFooter}
-                className="mx-auto -ml-2 pl-8 h-20 sm:h-20 md:h-40 lg:h-60 transition-opacity duration-300 opacity-100"
-                alt="Logo"
-              />
-
-            </Link>
-            <p className="mt-4 max-w-xs text-gray-500 dark:text-gray-400">
-              Monitoring your websites uptime and performance seamlessly.
-
-            </p>
-
-            <ul className="mt-8 flex gap-6">
-              <li>
-                <a
-                  href="#"
-                  rel="noreferrer"
-                  target="_blank"
-                  className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                >
-                  <span className="sr-only">Facebook</span>
-                  <FaFacebook className="h-6 w-6" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  rel="noreferrer"
-                  target="_blank"
-                  className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                >
-                  <span className="sr-only">Instagram</span>
-                  <FaInstagram className="h-6 w-6" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  rel="noreferrer"
-                  target="_blank"
-                  className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                >
-                  <span className="sr-only">Twitter</span>
-                  <FaTwitter className="h-6 w-6" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  rel="noreferrer"
-                  target="_blank"
-                  className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                >
-                  <span className="sr-only">GitHub</span>
-                  <FaGithub className="h-6 w-6" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  rel="noreferrer"
-                  target="_blank"
-                  className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                >
-                  <span className="sr-only">Dribbble</span>
-                  <FaDribbble className="h-6 w-6" />
-                </a>
-              </li>
-            </ul>
+    <footer className="border-t border-white/5 bg-[#07090e] text-gray-400 py-8 px-4 sm:px-6 lg:px-8 mt-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="space-y-4">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center">
+              <Activity className="w-4 h-4 text-emerald-400" />
+            </div>
+            <span className="text-base font-bold text-white font-['Outfit']">
+              Uptime<span className="text-emerald-400">Fury</span>
+            </span>
           </div>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
-            <div>
-              <p className="font-medium text-gray-900 dark:text-white">
-                Services
-              </p>
-              <ul className="mt-6 space-y-4 text-sm">
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    1on1 Coaching
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Company Review
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Accounts Review
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    HR Consulting
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    SEO Optimisation
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-medium text-gray-900 dark:text-white">
-                Company
-              </p>
-              <ul className="mt-6 space-y-4 text-sm">
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Meet the Team
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Accounts Review
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-medium text-gray-900 dark:text-white">
-                Helpful Links
-              </p>
-              <ul className="mt-6 space-y-4 text-sm">
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Contact
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    FAQs
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Live Chat
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-medium text-gray-900 dark:text-white">Legal</p>
-              <ul className="mt-6 space-y-4 text-sm">
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Accessibility
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Returns Policy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Refund Policy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Hiring Statistics
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <hr className="border-gray-300 dark:border-gray-700 w-full" />
-        <div className="flex flex-col md:flex-row justify-between items-center mt-4 px-4">
-          <div className="flex items-center mb-4 md:mb-0">
-            <img
-              src={logo}
-              className="mr-3 h-8 sm:h-12" // Increased logo size
-              alt="Logo"
-            />
-            <p className="text-md font-bold text-gray-900 dark:text-white">UPTIME FURY</p> {/* Added text */}
-          </div>
-          <p className="text-md text-gray-500 dark:text-gray-400 text-center flex-1 mb-4 md:mb-0">
-            &copy; 2024 Uptime Fury. All rights reserved.
+          <p className="text-xs text-gray-500 leading-relaxed">
+            Ultra-fast multi-region network latency diagnostics, SSL chain verifier, real-time packet loss probes, and DNS propagation inspector.
           </p>
-          <div className="flex space-x-4 text-md text-gray-500 dark:text-gray-400">
-            <a href="#" className="hover:underline">Terms</a>
-            <span>|</span>
-            <a href="#" className="hover:underline">Conditions</a>
+          <div className="flex items-center gap-2 text-[11px] font-mono text-emerald-400/90">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            All telemetry systems operational
           </div>
         </div>
 
+        <div>
+          <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-3 font-mono">Diagnostic Tools</h4>
+          <ul className="space-y-2 text-xs">
+            <li><Link to="/quickstats" className="hover:text-emerald-400 transition-colors">Unified Quick Diagnostics</Link></li>
+            <li><Link to="/ping" className="hover:text-emerald-400 transition-colors">ICMP Multi-Packet Ping</Link></li>
+            <li><Link to="/ssl" className="hover:text-emerald-400 transition-colors">SSL Certificate & SAN Chain</Link></li>
+            <li><Link to="/http" className="hover:text-emerald-400 transition-colors">HTTP Status & Response Time</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-3 font-mono">Network Inspector</h4>
+          <ul className="space-y-2 text-xs">
+            <li><Link to="/DNSLookup" className="hover:text-emerald-400 transition-colors">Global DNS Record Queries</Link></li>
+            <li><Link to="/NSLookup" className="hover:text-emerald-400 transition-colors">Name Server Authority Check</Link></li>
+            <li><Link to="/whois" className="hover:text-emerald-400 transition-colors">WHOIS Domain Registrar Data</Link></li>
+            <li><Link to="/TraceRoute" className="hover:text-emerald-400 transition-colors">Network Hop Traceroute</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-3 font-mono">Platform</h4>
+          <ul className="space-y-2 text-xs">
+            <li><Link to="/websitemonitoring" className="hover:text-emerald-400 transition-colors">Architecture Overview</Link></li>
+            <li><Link to="/about-us" className="hover:text-emerald-400 transition-colors">About Engineering Team</Link></li>
+            <li><Link to="/contact-us" className="hover:text-emerald-400 transition-colors">API Integration Support</Link></li>
+            <li>
+              <a
+                href="https://github.com/shubhamaggarwal828/up-time-fury-deployement-final-prod-app"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-emerald-400 transition-colors flex items-center gap-1.5"
+              >
+                <GitBranch className="w-3.5 h-3.5" /> GitHub Repository
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto pt-8 mt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4 font-mono">
+        <p>© 2024–2026 SysOpsToolkit / UptimeFury Network Diagnostics Engine. All rights reserved.</p>
+        <p className="flex items-center gap-1">
+          Engineered for reliability & precision performance
+        </p>
       </div>
     </footer>
   );

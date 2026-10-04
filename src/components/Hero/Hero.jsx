@@ -121,7 +121,12 @@ const Hero = () => {
           }}
           whileTap={{ scale: 0.95 }}
         >
-          Get Started
+           <a
+                href={import.meta.env.VITE_DASHBOARD_URL_LOGIN}
+                  target="_blank"
+                >
+                        Get started now
+                </a> 
           <svg
             className="ml-2"
             width="20"
