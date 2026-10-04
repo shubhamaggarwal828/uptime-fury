@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Navbar from "./components/Navbar/Navbar";
@@ -24,8 +24,28 @@ import ScrollToTop from "./ScrollToTop";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import WebsiteMonitoring from "./pages/WebsiteMonitoring";
+import { getActiveBackendUrl } from "./utils/apiConfig";
 
 const App = () => {
+  // Silent background warm-up to wake up sleeping Render backend instantly upon user arrival
+  useEffect(() => {
+    const warmUpBackend = async () => {
+      try {
+        const backendUrl = getActiveBackendUrl();
+        // Ping root health check endpoint
+        fetch(`${backendUrl.replace(/\/+$/, "")}/`, { method: "GET", mode: "cors" }).catch(() => {});
+        // Also ping onrender directly if available in production environment
+        const prodUrl = import.meta.env.VITE_API_URI_FOR_METRICS;
+        if (prodUrl && prodUrl !== backendUrl) {
+          fetch(`${prodUrl.replace(/\/+$/, "")}/`, { method: "GET", mode: "cors" }).catch(() => {});
+        }
+      } catch (e) {
+        // Silent failure so user experience is never blocked
+      }
+    };
+    warmUpBackend();
+  }, []);
+
   return (
     <div className="bg-[#07090e] min-h-screen text-white flex">
       <BrowserRouter>
