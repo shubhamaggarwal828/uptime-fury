@@ -192,7 +192,7 @@ const Settings = () => {
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
-                      {s.id !== "local" ? (
+                      {s.id !== "active-daemon" && s.id !== "local" ? (
                         <button
                           type="button"
                           onClick={() => handleRemoveServer(s.id)}
@@ -203,8 +203,8 @@ const Settings = () => {
                           <span>Remove</span>
                         </button>
                       ) : (
-                        <span className="text-[10px] font-mono text-gray-500 px-2 py-1 bg-white/5 rounded border border-white/5">
-                          Built-in Primary
+                        <span className="text-[10px] font-mono text-cyan-400 px-2 py-1 bg-cyan-500/10 rounded border border-cyan-500/20">
+                          Active Primary
                         </span>
                       )}
                     </div>
